@@ -29,5 +29,6 @@ The provided Rdata files should give an idea of how data should be layed out, an
 
 
 
-Ref.
+**Ref.**
+
 Langfelder P, Horvath S. WGCNA: an R package for weighted correlation network analysis. BMC Bioinformatics. 2008 Dec 29; 9:559.
