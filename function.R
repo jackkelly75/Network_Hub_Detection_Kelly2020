@@ -1,5 +1,13 @@
 hub_detection <- function(num_iterations, adjacency, moduleColors, colors, betweenness = T, hubscore = T, pagerank = T, closeness = T, MM = T, edge = T, limit_edge = T, sig_value = 0.05, clusters = 5, datExpr = NULL) {
 	
+	require(WGCNA)
+	require(igraph)
+	require(data.table)
+	require(WGCNA)
+	require(foreach)
+	require(doParallel)
+	require(R.utils)
+	
 	#initialise blank lists to store results
 	last = list()
 	edge_values = list()
@@ -92,8 +100,6 @@ hub_detection <- function(num_iterations, adjacency, moduleColors, colors, betwe
 		if(hubscore){
 			print(paste0("Finding hubscore values"))
 			results_hubscore <- foreach(icount(num_iterations), .packages = c("igraph")) %dopar% {
-				#print the iteration number running to keep track
-			    	print(paste0("Starting iteration ",iteration))
 			    	#randomise the list of genes that are colnames of genes
 				rand_genes <- sample(genes)
 				#create a dupicalte of the original adjacency matrix
@@ -110,9 +116,7 @@ hub_detection <- function(num_iterations, adjacency, moduleColors, colors, betwe
 		if(pagerank){
 			print(paste0("Finding pagerank values"))
 			results_pagerank <- foreach(icount(num_iterations), .packages = c("igraph")) %dopar% {
-				#print the iteration number running to keep track
-			    print(paste0("Starting iteration ",iteration))
-			    #randomise the list of genes that are colnames of genes
+			    	#randomise the list of genes that are colnames of genes
 				rand_genes <- sample(genes)
 				#create a dupicalte of the original adjacency matrix
 				#add the randomised genes as row and colnames to randomise the adjacency matrix
@@ -125,13 +129,9 @@ hub_detection <- function(num_iterations, adjacency, moduleColors, colors, betwe
 		}
 		
 		if(closeness){
-			iteration = 1
 			print(paste0("Finding closeness values"))
 			results_closeness <- foreach(icount(num_iterations), .packages = c("igraph")) %dopar% {
-				#print the iteration number running to keep track
-			    print(paste0("Starting iteration ",iteration))
-			    iteration = iteration +1
-			    #randomise the list of genes that are colnames of genes
+			  	  #randomise the list of genes that are colnames of genes
 				rand_genes <- sample(genes)
 				#create a dupicalte of the original adjacency matrix
 				#add the randomised genes as row and colnames to randomise the adjacency matrix
@@ -144,13 +144,9 @@ hub_detection <- function(num_iterations, adjacency, moduleColors, colors, betwe
 		}
 		
 		if(MM){
-			iteration = 1
 			print(paste0("Finding module membership values"))
 			results_MM <- foreach(icount(num_iterations)) %dopar% {
-				#print the iteration number running to keep track
-			    print(paste0("Starting iteration ",iteration))
-			    iteration = iteration +1
-			    #randomise the list of genes that are colnames of genes
+			   	#randomise the list of genes that are colnames of genes
 				rand_genes <- sample(genes)
 				temp_network_MM <- network_MM
 				names(temp_network_MM) <- rand_genes
@@ -160,13 +156,8 @@ hub_detection <- function(num_iterations, adjacency, moduleColors, colors, betwe
 
 		
 		if(edge){
-			iteration = 1
-			print(paste0("Finding edge betweenness values"))
 			results_edgebetweenness <- foreach(icount(num_iterations), .packages = c("igraph")) %dopar% {
-				#print the iteration number running to keep track
-			    print(paste0("Starting iteration ",iteration))
-			    iteration = iteration +1
-			    #randomise the list of genes that are colnames of genes
+			    	#randomise the list of genes that are colnames of genes
 				rand_genes <- sample(genes)
 				#create a duplicate of the original adjacency matrix
 				#add the randomised genes as row and colnames to randomise the adjacency matrix
