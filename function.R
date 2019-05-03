@@ -43,7 +43,7 @@ hub_detection <- function(num_iterations, adjacency, moduleColors, colors, betwe
 		################################
 		##if  betweenness and stuff ot her ones
 		if(betweenness){
-			network_betweenness <- betweenness(network_graph, v = V(network_graph), directed = FALSE, nobigint = TRUE, normalized = TRUE, weights = E(network_graph)$weight)
+			network_betweenness <- betweenness(network_graph, v = V(network_graph), directed = FALSE, nobigint = TRUE, normalized = FALSE, weights = E(network_graph)$weight)
 		}
 		
 		if(hubscore){
@@ -93,7 +93,7 @@ hub_detection <- function(num_iterations, adjacency, moduleColors, colors, betwe
 				#create the igraph object from new randomised adjacency matrix
 				network_graph <- graph_from_adjacency_matrix(network, mode = "undirected", weighted = TRUE, diag = FALSE,  add.colnames = NULL, add.rownames = NA)
 				#calculate the betweenness values for this new random labelled graph
-				temp_network_betweenness <- betweenness(network_graph, v = V(network_graph), directed = FALSE, nobigint = TRUE, normalized = TRUE, weights = E(network_graph)$weight)
+				temp_network_betweenness <- betweenness(network_graph, v = V(network_graph), directed = FALSE, nobigint = TRUE, normalized = FALSE, weights = E(network_graph)$weight)
 			}
 		}
 
