@@ -30,10 +30,14 @@ The provided Rdata files should give an idea of how data should be layed out, an
 ```
 x <- hub_detection(num_iterations = 1000, moduleColors = moduleColors, adjacency = adjacency, betweenness = T, hubscore = T, pagerank = T, closeness = T, MM = F, edge = T, limit_edge = T, sig_value = 0.05, clusters = 5, datExpr = NULL)
 ```
+limit_edge only runs the permutation test on the edges that have the highest edge betweenness in the module to reduce computation requirements and time. The number of highest edges taked in equal to the number of genes in the module. 
 
 
 **Output**
 
+As this function runs, it saves .Rdata files. These contain the hub score for each iteration for each of the genes that is found to be significant.
+The function returns a list with each entry containing a datatable with each hubscore and pvalue.
+The included results.Rdata gives an example of results using the example data.
 
 
 **Ref.**
