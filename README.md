@@ -28,7 +28,7 @@ moduleColors.Rdata contains a vector of the genes in the adjacency matrix provid
 The provided Rdata files should give an idea of how data should be layed out, and can be used with the function to show the hub genes within these modules.
 
 ```
-x <- hub_detection(num_iterations = 1000, moduleColors = moduleColors, adjacency = adjacency)
+x <- hub_detection(num_iterations = 1000, moduleColors = moduleColors, adjacency = adjacency, betweenness = T, hubscore = T, pagerank = T, closeness = T, MM = F, edge = T, limit_edge = T, sig_value = 0.05, clusters = 5, datExpr = NULL)
 ```
 
 
