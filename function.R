@@ -196,7 +196,7 @@ hub_detection <- function(num_iterations, adjacency, moduleColors, colors, betwe
 					}
 				}
 				#divide by number of iterations to get pvalue
-				pvalue[p] <- count/num_iterations
+				pvalue[p] <- (count + 1)/(num_iterations + 1)
 			}
 			close(pb)
 			names(pvalue) <- genes
@@ -241,7 +241,7 @@ hub_detection <- function(num_iterations, adjacency, moduleColors, colors, betwe
 					}
 				}
 				#divide by number of iterations to get pvalue
-				pvalue[p] <- count/num_iterations
+				pvalue[p] <- (count + 1)/(num_iterations + 1)
 			}
 			close(pb)
 			names(pvalue) <- genes
@@ -285,7 +285,7 @@ hub_detection <- function(num_iterations, adjacency, moduleColors, colors, betwe
 					}
 				}
 				#divide by number of iterations to get pvalue
-				pvalue[p] <- count/num_iterations
+				pvalue[p] <- (count + 1)/(num_iterations + 1)
 			}
 			close(pb)
 			names(pvalue) <- genes
@@ -329,7 +329,7 @@ hub_detection <- function(num_iterations, adjacency, moduleColors, colors, betwe
 					}
 				}
 				#divide by number of iterations to get pvalue
-				pvalue[p] <- count/num_iterations
+				pvalue[p] <- (count + 1)/(num_iterations + 1)
 			}
 			close(pb)
 			names(pvalue) <- genes
@@ -374,7 +374,7 @@ hub_detection <- function(num_iterations, adjacency, moduleColors, colors, betwe
 					}
 				}
 				#divide by number of iterations to get pvalue
-				pvalue[p] <- count/num_iterations
+				pvalue[p] <- (count + 1)/(num_iterations + 1)
 			}
 			close(pb)
 			names(pvalue) <- genes
@@ -422,7 +422,7 @@ hub_detection <- function(num_iterations, adjacency, moduleColors, colors, betwe
 					}
 				}
 				#divide by number of iterations to get pvalue
-				pvalue[p] <- count/num_iterations
+				pvalue[p] <- (count + 1)/(num_iterations +  1)
 			}
 			close(pb)
 			names(pvalue) <- pairs
