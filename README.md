@@ -1,3 +1,5 @@
+https://zenodo.org/badge/DOI/10.5281/zenodo.3686007.svg
+
 # Network_Hub_Detection_Kelly2020
 Permutation test to detect important hub genes in networks
 
