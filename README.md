@@ -1,7 +1,8 @@
 # Network_Hub_Detection_Kelly2020
 
-Release v1.0 is archived at [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3686007.svg)](https://doi.org/10.5281/zenodo.3686007)
-Permutation test to detect important hub genes in networks
+Release v1.0 is archived at [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3686007.svg)](https://doi.org/10.5281/zenodo.3686007)   
+
+Permutation test to detect important hub genes in networks. 
 
 Weighted Gene Co-expression Network Analysis (WGCNA) (Langfelder and Horvath, 2008) and other network analysis tools are becoming more and more prevalent in network biology.
 
